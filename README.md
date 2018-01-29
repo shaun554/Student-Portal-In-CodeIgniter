@@ -1,2 +1,3 @@
-# Student-Portal-In-CodeIgniter
-A website in CodeIgniter
+# Students-Portal-In-CodeIngiter
+
+A project made in CodeIgniter Framework
