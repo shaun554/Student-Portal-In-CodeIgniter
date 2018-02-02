@@ -42,6 +42,10 @@
 					<li class="nav-item">
 					<a class="nav-link" href="/index.php/login/">Login</a>
 					</li>
+				<?php elseif ($this->session->userdata('role') == 'admin'): ?>
+					<li class="nav-item">
+					<a class="nav-link" href="/index.php/admin/schedule">Schedule an appointment</a>
+					</li>
 				<?php endif; ?>
 			</ul>
 			
