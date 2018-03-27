@@ -8,7 +8,7 @@
 		}
 		else
 		{
-			$title = 'Site Name | '.$title; 
+			$title = $title.' | Site Name'; 
 		}
 	?>
 

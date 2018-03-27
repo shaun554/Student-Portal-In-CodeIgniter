@@ -43,10 +43,10 @@ class Teacher extends CI_Controller
 
             if ($this->form_validation->run() === FALSE)
             {
-                /*$this->load->view('includes/header', $data);
-                $this->load->view('books/add');
-                $this->load->view('includes/footer');*/
-                // $this->load->view('books/failed');
+                $data['message'] = $this->input->post('name').' not added. Please try again later.';
+                $this->load->view('includes/header', $data);
+                $this->load->view('books/failed');
+                $this->load->view('includes/footer');
 
             }
             else

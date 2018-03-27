@@ -31,19 +31,20 @@ class Register extends CI_Controller
 
         if ($this->form_validation->run() === FALSE)
         {
-        	/*$data['title'] = 'Register';
+        	$data['title'] = 'Register';
             $this->load->view('includes/header', $data);
-            $this->load->view('register/index');
-            $this->load->view('includes/footer');*/
             $data['message'] = 'Registration not successful. Please try again.';
             $this->load->view('messages/failed',$data);
+            $this->load->view('includes/footer');
 
         }
         else
         {
             $this->register_model->add_user();
+            $this->load->view('includes/header', $data);
             $data['message'] = 'Registration successful';
             $this->load->view('messages/success',$data);
+            $this->load->view('messages/failed',$data);
         }
     }
 }

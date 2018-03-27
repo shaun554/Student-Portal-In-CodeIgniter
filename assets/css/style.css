@@ -181,3 +181,10 @@ footer
 {
 	background: #f3f3f3;
 }
+
+.badge:hover
+{
+	border:1px solid #868e96;
+	background: white;
+	color:#868e96;
+}
