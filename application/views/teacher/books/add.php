@@ -1,27 +1,43 @@
 
-<div class="col-md-4 m-5">
+<div class="col-md-4 m-5 white-container">
 	<h4><?php echo $title; ?></h4>
 
 	<div class="mt-3">
 		<?php echo validation_errors(); ?>
 
 		<?php echo form_open('teacher/add'); ?>
-		    <label for="name" class="form-label">Name</label>
-		    <input type="input" name="name" class="form-control" placeholder="Enter book name" required/>
-		    <small id="name" class="form-text text-muted">Hint: Enter name of the book</small><br/>
 
-		    <label for="url" class="form-label">URL</label>
-		    <input type="input" name="url" class="form-control" placeholder="Enter book url" required/>
-		    <small id="url" class="form-text text-muted">Hint: Enter a link to the pdf file</small><br/>
+		<?php
+			if($verified === FALSE)
+			{
+				$data['message'] = 'Book not added. Please try again later.';
+	    		$this->load->view('messages/failed',$data);
+			}
+		?>
 
-		    <label for="subject" class="form-label">Subject</label>
-		    <input type="input" name="subject" class="form-control" placeholder="Enter subject" required/>
-		    <small id="url" class="form-text text-muted">Hint: Enter the subject of the book</small><br/>
+			<div class="form-group">
+			    <label for="name" class="form-label">Name</label>
+			    <input type="input" name="name" class="form-control form-input" required/>
+			    <small id="name" class="form-text text-muted">Hint: Enter name of the book</small><br/>
+			</div>
 
-		    <label for="author" class="form-label">Author</label>
-		    <input type="input" name="author" class="form-control" placeholder="Enter author name" required/>
-		    <small id="author" class="form-text text-muted">Hint: Enter "NA" if not known</small><br/>
+			<div class="form-group">
+			    <label for="url" class="form-label">URL</label>
+			    <input type="input" name="url" class="form-control form-input" required/>
+			    <small id="url" class="form-text text-muted">Hint: Enter a link to the pdf file</small><br/>
+			</div>
 
+			<div class="form-group">
+			    <label for="subject" class="form-label">Subject</label>
+			    <input type="input" name="subject" class="form-control form-input" required/>
+			    <small id="url" class="form-text text-muted">Hint: Enter the subject of the book</small><br/>
+			</div>
+
+			<div class="form-group">
+			    <label for="author" class="form-label">Author</label>
+			    <input type="input" name="author" class="form-control form-input" required/>
+			    <small id="author" class="form-text text-muted">Hint: Enter "NA" if not known</small><br/>
+			</div>
 		    <input type="submit" name="submit" class="btn btn-dark" value="Add" />
 		</form>		
 	</div>

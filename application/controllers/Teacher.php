@@ -41,20 +41,21 @@ class Teacher extends CI_Controller
             $this->form_validation->set_rules('author', 'Author', 'required');
             $this->form_validation->set_rules('url', 'URL', 'required');
 
-            if ($this->form_validation->run() === FALSE)
-            {
-                $data['message'] = $this->input->post('name').' not added. Please try again later.';
-                $this->load->view('includes/header', $data);
-                $this->load->view('books/failed');
-                $this->load->view('includes/footer');
-
-            }
-            else
+            $data['verified'] = TRUE;
+            if ($this->form_validation->run())
             {
 
                 $this->books_model->add_books();
                 $data['message'] = $this->input->post('name').' added';
                 $this->load->view('messages/success',$data);
+            }   
+            else
+            {
+                $data['verified'] = FALSE;
+                /*$data['message'] = $this->input->post('name').' not added. Please try again later.';
+                $this->load->view('includes/header', $data);
+                $this->load->view('messages/failed');
+                $this->load->view('includes/footer');*/
             }
 
             $data['books'] = $this->books_model->get();

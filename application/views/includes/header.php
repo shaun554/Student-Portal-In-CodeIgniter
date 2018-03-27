@@ -20,7 +20,7 @@
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.16/r-2.2.1/datatables.min.css"/>
 	<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="/assets/js/jquery.js"></script>
  
 </head>
 <header>

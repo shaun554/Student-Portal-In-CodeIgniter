@@ -15,7 +15,7 @@
 				        		<?php $tags = explode('#',$book['tag']); ?>
 
 				        		<?php for($i=0;$i<sizeof($tags);$i++): ?>
-				        			<a href=""><span class="badge pl-2 pr-2 badge-secondary"><?php echo ucwords($tags[$i]); ?></span></a>
+				        			<a href=""><span class="badge pl-2 pr-2 pb-1 badge-secondary"><?php echo ucwords($tags[$i]); ?></span></a>
 				        		<?php endfor; ?>
 				        	</div>
 				        	<a href="" target="_blank" class="btn btn-link card-link mt-3">More</a>
