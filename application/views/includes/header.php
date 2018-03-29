@@ -17,10 +17,12 @@
 	<link rel="stylesheet" type="text/css" href="/assets/css/bootstrap/dist/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="/assets/css/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.16/r-2.2.1/datatables.min.css"/>
+	<link rel="stylesheet" type="text/css" href="/assets/datatables/datatables.min.css"/>
+
 	<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
 
 	<script type="text/javascript" src="/assets/js/jquery.js"></script>
+	
  
 </head>
 <header>

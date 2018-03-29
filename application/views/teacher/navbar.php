@@ -9,6 +9,11 @@
 			<li class="nav-item teacher-navbar-menu-item active">
 				<a class="nav-link" href="/index.php/teacher/books/add">Add Book<span class="sr-only">(current)</span></a>
 			</li>
+
+			
+			<li class="nav-item teacher-navbar-menu-item active">
+				<a class="nav-link" href="">Generate Report<span class="sr-only">(current)</span></a>
+			</li>
 		</ul>
 	</div>
 </nav>

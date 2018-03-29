@@ -5,6 +5,9 @@
 		<i class="fa fa-copyright"></i>&nbsp;<?php echo date('Y')."-".(date('Y')+1); ?>&nbsp;<strong>CM Productions	</strong>
 	</div>
 </footer>
-<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.16/r-2.2.1/datatables.min.js"></script>
+<script type="text/javascript" src="/assets/datatables/datatables.min.js"></script>
+
 <script type="text/javascript" src="/assets/js/scripts.js"></script>
+<script type="text/javascript" src="/assets/css/bootstrap/dist/js/bootstrap.min.js"/>
+<script type="text/javascript" src="/assets/css/bootstrap/dist/js/bootstrap.bundle.min.js"/>
 </html>

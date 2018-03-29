@@ -13,7 +13,7 @@
 				?>
 				<div class="form-group">
 					<label for="username" class="form-label">Username</label>
-				    <input type="input" class="form-control form-input" name="username" required="true"/><br />
+				    <input type="text" id="username" class="form-control form-input" name="username" required="true"/><br />
 				</div>
 
 				<div class="form-group">
