@@ -10,6 +10,7 @@ foreach ($users as $user)
 		{
 
 			$this->session->set_userdata('role',$user['role']);
+			$this->session->set_userdata('username',$username);
 			switch($user['role'])
 			{
 				case 'admin':

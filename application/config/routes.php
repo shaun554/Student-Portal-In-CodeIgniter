@@ -74,6 +74,8 @@ $route['teacher/index'] = 'teacher/index';
 $route['teacher'] = 'teacher/index';
 $route['teacher/books/add'] = '/teacher/add/';
 $route['teacher/books/add/(:any)'] = '/teacher/add/$1';
+$route['teacher/books/edit'] = '/teacher/editBook/';
+$route['teacher/books/edit/(:any)'] = '/teacher/editBook/$1';
 
 $route['admin'] = 'admin/index';
 $route['admin/index'] = 'admin/index';

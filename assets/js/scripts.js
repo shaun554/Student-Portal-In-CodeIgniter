@@ -13,6 +13,12 @@ $(document).ready( function () {
 
 
 $(document).ready(function(){
+
+  if($('input').val() != "")
+  {
+    $('input').parents('.form-group').addClass('focused');
+  }
+
   $('input').focus(function(){
     $(this).parents('.form-group').addClass('focused');
   });

@@ -21,5 +21,15 @@ class Get_User_Data_Model extends CI_Model
 		$query = $this->db->get('users',array('email'=>$filter));
 		return $query->result_array();
 	}
+
+	public function getWhere($key,$value)
+    {
+        $this->db->select('*');
+        $this->db->from('users');
+        $this->db->where($key, $value);
+        $query = $this->db->get();
+        
+        return $query->row_array();
+    }
 }
 ?>

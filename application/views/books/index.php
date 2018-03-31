@@ -7,18 +7,21 @@
 			<?php foreach ($books as $book): ?>
 			<div class="card-deck col-md-4">
 				<div class="card mb-3 p-3 card-border">
-			        <div class="card-block">	
-		        		<a href="<?php echo $book['url']; ?>" target="_blank"><h5 class="card-title"><?php echo $book['name']; ?></h5></a>
+			        <div class="card-block">
+		        		<a href="<?php echo $book['url']; ?>" target="_blank"><h5 class="card-title"><?php echo substr($book['name'],0,50); ?></h5></a>
 				        	<p class="card-text"><?php echo $book['subject'];?></p>
 				        	<div>
 				        		<h6 class="card-subtitle mb-2 text-muted">By: <span><?php echo $book['author']; ?></span></h6>
 				        		<?php $tags = explode('#',$book['tag']); ?>
 
 				        		<?php for($i=0;$i<sizeof($tags);$i++): ?>
-				        			<a href=""><span class="badge pl-2 pr-2 pb-1 badge-secondary"><?php echo ucwords($tags[$i]); ?></span></a>
+				        			<a href="index.php/books/<?php echo $tags[$i]; ?>"><span class="badge pl-2 pr-2 pb-1 badge-secondary"><?php echo ucwords($tags[$i]); ?></span></a>
 				        		<?php endfor; ?>
+				        		<?php if(empty($book['tag'])): ?>
+				        			<br/>
+				        		<?php endif; ?>
 				        	</div>
-				        	<a href="" target="_blank" class="btn btn-link card-link mt-3">More</a>
+				        	<a href="index.php/books/<?php echo $book['id']; ?>" target="_blank" class="btn btn-link card-link mt-3">More</a>
 			        </div>
 				</div>				
 			</div>
