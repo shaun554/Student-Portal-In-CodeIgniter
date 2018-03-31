@@ -57,8 +57,7 @@ $route['(:any)'] = 'pages/page/$1';*/
 
 $route['books'] = 'books/index';
 // $route['books/(:any)'] = 'books/index/$1';
-$route['books/book'] = 'books/book';
-$route['books/book/(:any)'] = 'books/book';
+$route['book/(:any)'] = 'books/book/$1';
 
 $route['login/index'] = 'login/index';
 $route['login/(:any)'] = 'login/index/$1';

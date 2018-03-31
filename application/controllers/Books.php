@@ -29,10 +29,17 @@ class Books extends CI_Controller
         $this->load->view('includes/footer');
     }
 
-    public function individualBook($title)
+    public function book($id)
     {
-        $data['title'] = $title;
+        $getTitle = $this->books_model->getWhere('id', $id);
+        $data['title'] = $getTitle['name'];
+        $data['book'] = $this->books_model->getWhere('id', $id);
+
         $this->load->view('includes/header', $data);
+        if($this->session->userdata('role') == 'teacher')
+        {
+            $this->load->view('teacher/navbar', $data);        
+        }
         $this->load->view('books/book', $data);
         $this->load->view('includes/footer'); 
     }

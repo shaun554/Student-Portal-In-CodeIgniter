@@ -15,13 +15,13 @@
 				        		<?php $tags = explode('#',$book['tag']); ?>
 
 				        		<?php for($i=0;$i<sizeof($tags);$i++): ?>
-				        			<a href="index.php/books/<?php echo $tags[$i]; ?>"><span class="badge pl-2 pr-2 pb-1 badge-secondary"><?php echo ucwords($tags[$i]); ?></span></a>
+				        			<a href="/index.php/books/<?php echo $tags[$i]; ?>"><span class="badge pl-2 pr-2 pb-1 badge-secondary"><?php echo ucwords($tags[$i]); ?></span></a>
 				        		<?php endfor; ?>
-				        		<?php if(empty($book['tag'])): ?>
-				        			<br/>
-				        		<?php endif; ?>
 				        	</div>
-				        	<a href="index.php/books/<?php echo $book['id']; ?>" target="_blank" class="btn btn-link card-link mt-3">More</a>
+				        	<a href="/index.php/book/<?php echo $book['id']; ?>" class="btn btn-link card-link mt-3">More</a>
+				        	<?php if($this->session->userdata('role') == 'teacher'): ?>
+				        		<a href="/index.php/teacher/books/edit/<?php echo $book['id']; ?>" class="pull-right btn card-link mt-3">Edit</a>
+				        	<?php endif; ?>
 			        </div>
 				</div>				
 			</div>
