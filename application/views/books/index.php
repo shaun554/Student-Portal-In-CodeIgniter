@@ -1,20 +1,20 @@
 <div class="container-fluid">
 	<div class="row align-items mt-5 mb-5 ml-5">
-		<span class="mt-2">Filter By: </span>
+		<span class="mt-2"><strong>Filter By:&nbsp;</strong></span>
 		
 		<?php
-		$distinctTags = array();
-		foreach ($tags as $tag)
-		{
-			$tagsArray = explode("#", $tag['tag']);
-			for($i=0;$i<sizeof($tagsArray);$i++)
+			$distinctTags = array();
+			foreach ($tags as $tag)
 			{
-				if((!in_array($tagsArray[$i], $distinctTags)) && (!empty($tagsArray[$i])))
+				$tagsArray = explode("#", $tag['tag']);
+				for($i=0;$i<sizeof($tagsArray);$i++)
 				{
-					array_push($distinctTags, $tagsArray[$i]);
+					if((!in_array(strtolower($tagsArray[$i]), $distinctTags)) && (!empty($tagsArray[$i])))
+					{
+						array_push($distinctTags, strtolower($tagsArray[$i]));
+					}
 				}
 			}
-		}
 		?>
 		
 		<div class="ml-3">
@@ -22,6 +22,7 @@
 			<li class="nav-item">
 			    <a class="nav-link" href="/index.php/books/">All</a>
 			  </li>
+			<?php sort($distinctTags); ?>
 			<?php for($i=0;$i<sizeof($distinctTags);$i++): ?>
 			  <li class="nav-item">
 			    <a class="nav-link" href="/index.php/books/filter/<?php echo $distinctTags[$i]; ?>"><?php echo ucwords($distinctTags[$i]); ?></a>
