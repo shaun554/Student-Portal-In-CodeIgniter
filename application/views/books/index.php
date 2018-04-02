@@ -1,27 +1,64 @@
 <div class="container-fluid">
 	<div class="row align-items mt-5 mb-5 ml-5">
-		<!-- <div class="pull-right">
-			<a href="/index.php/	books/add"><button class="btn btn-dark">Add book</button></a>
-		</div> -->
+		<span class="mt-2">Filter By: </span>
+		
+		<?php
+		$distinctTags = array();
+		foreach ($tags as $tag)
+		{
+			$tagsArray = explode("#", $tag['tag']);
+			for($i=0;$i<sizeof($tagsArray);$i++)
+			{
+				if((!in_array($tagsArray[$i], $distinctTags)) && (!empty($tagsArray[$i])))
+				{
+					array_push($distinctTags, $tagsArray[$i]);
+				}
+			}
+		}
+		?>
+		
+		<div class="ml-3">
+			<ul class="nav nav-pills">
+			<li class="nav-item">
+			    <a class="nav-link" href="/index.php/books/">All</a>
+			  </li>
+			<?php for($i=0;$i<sizeof($distinctTags);$i++): ?>
+			  <li class="nav-item">
+			    <a class="nav-link" href="/index.php/books/filter/<?php echo $distinctTags[$i]; ?>"><?php echo ucwords($distinctTags[$i]); ?></a>
+			  </li>
+			<?php endfor; ?>
+			</ul>
+		</div>
+		
+	</div>
+</div>
+
+<div class="container-fluid">
+	<div class="row align-items mt-5 mb-5 ml-5">
 		<?php if($books): ?>
 			<?php foreach ($books as $book): ?>
-			<div class="card-deck col-md-4">
-				<div class="card mb-3 p-3 card-border">
+			<div class="card-deck col-md-4 card-books">
+				<div class="card white-container mb-3 p-3 card-border">
 			        <div class="card-block">
-		        		<a href="<?php echo $book['url']; ?>" target="_blank"><h5 class="card-title"><?php echo substr($book['name'],0,50); ?></h5></a>
+		        		<a href="<?php echo $book['url']; ?>" target="_blank"><h5 class="card-title"><?php echo substr($book['name'],0,26); ?></h5></a>
 				        	<p class="card-text"><?php echo $book['subject'];?></p>
 				        	<div>
 				        		<h6 class="card-subtitle mb-2 text-muted">By: <span><?php echo $book['author']; ?></span></h6>
+				        	</div>
+				        	<div>
+					        	<a href="/index.php/book/<?php echo $book['id']; ?>" class="btn btn-link card-link mt-3">More</a>
+					        	<?php if($this->session->userdata('role') == 'teacher'): ?>
+					        		<a href="/index.php/teacher/books/edit/<?php echo $book['id']; ?>" class="pull-right btn card-link mt-3">Edit</a>
+					        	<?php endif; ?>
+				        	</div>
+				        	<!-- <div class="bottom-align">
 				        		<?php $tags = explode('#',$book['tag']); ?>
 
 				        		<?php for($i=0;$i<sizeof($tags);$i++): ?>
 				        			<a href="/index.php/books/<?php echo $tags[$i]; ?>"><span class="badge pl-2 pr-2 pb-1 badge-secondary"><?php echo ucwords($tags[$i]); ?></span></a>
 				        		<?php endfor; ?>
-				        	</div>
-				        	<a href="/index.php/book/<?php echo $book['id']; ?>" class="btn btn-link card-link mt-3">More</a>
-				        	<?php if($this->session->userdata('role') == 'teacher'): ?>
-				        		<a href="/index.php/teacher/books/edit/<?php echo $book['id']; ?>" class="pull-right btn card-link mt-3">Edit</a>
-				        	<?php endif; ?>
+
+				        	</div> -->
 			        </div>
 				</div>				
 			</div>

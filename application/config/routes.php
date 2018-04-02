@@ -58,6 +58,7 @@ $route['(:any)'] = 'pages/page/$1';*/
 $route['books'] = 'books/index';
 // $route['books/(:any)'] = 'books/index/$1';
 $route['book/(:any)'] = 'books/book/$1';
+$route['book/(:any)'] = 'books/filter/$1';
 
 $route['login/index'] = 'login/index';
 $route['login/(:any)'] = 'login/index/$1';
@@ -79,3 +80,5 @@ $route['teacher/books/edit/(:any)'] = '/teacher/editBook/$1';
 $route['admin'] = 'admin/index';
 $route['admin/index'] = 'admin/index';
 $route['admin/(:any)'] = 'admin/index/';
+
+$route['students'] = 'student/index';

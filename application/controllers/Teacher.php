@@ -64,7 +64,7 @@ class Teacher extends CI_Controller
             }
 
             $data['books'] = $this->books_model->get();
-
+            
             $this->load->view('includes/header', $data);
             if($this->session->userdata('role') == 'teacher')
             {
@@ -118,6 +118,21 @@ class Teacher extends CI_Controller
             $this->load->view('messages/warning',$data);   
             $this->load->view('includes/footer');
         }
+    }
+
+    public function students()
+    {
+        $this->load->model('students/students_model');
+        
+        $data['students'] = $this->students_model->getWhere('role','teacher');
+
+        $this->load->view('includes/header');
+        if($this->session->userdata('role') == 'teacher')
+        {
+            $this->load->view('teacher/navbar', $data);        
+        }
+        $this->load->view('/students/index', $data);
+        $this->load->view('includes/footer');
     }
 }
 ?>

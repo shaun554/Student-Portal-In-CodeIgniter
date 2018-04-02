@@ -8,16 +8,10 @@ class Books_Model extends CI_Model
         $this->load->model('login/get_user_data_model');
     }
 
-    public function get($slug = FALSE)
+    public function get()
 	{
-        if ($slug === FALSE)
-        {
-                $query = $this->db->get('books');
-                return $query->result_array();
-        }
-
-        $query = $this->db->get('books', array('slug' => $slug));
-        return $query->row_array();
+        $query = $this->db->get('books');
+        return $query->result_array();
 	}
 
 
@@ -45,21 +39,12 @@ class Books_Model extends CI_Model
 
     public function getWhere($key,$value)
     {
-        $this->db->select('*');
-        $this->db->from('books');
-        $this->db->where($key, $value);
-        $query = $this->db->get();
-        
+        $query = $this->db->get('users', array($key => $value));
         return $query->row_array();
     }
 
     public function updateBooks()
     {
-
-
-        $this->load->helper('url');
-
-        $slug = url_title($this->input->post('title'), 'dash', TRUE);
 
         $username = $this->session->userdata('username');
         
@@ -76,6 +61,13 @@ class Books_Model extends CI_Model
         $this->db->where('id', $getBookId['id'], FALSE);
         
         return $this->db->update('books');
+    }
+
+    public function getSimiliarBooks($key,$value)
+    {
+        $this->db->like($key, $value);
+        $query = $this->db->get('books');
+        return $query->result_array();
     }
 }
 ?>

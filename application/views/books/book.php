@@ -3,7 +3,7 @@
 		<div class="col">
     		<a href="<?php echo $book['url']; ?>" target="_blank"><h3 class="text-center"><?php echo strtoupper($book['name']); ?></h3></a>
 
-    		<img src="" style="width: 150px;height: 200px;border:2px solid black;"/>
+    		<img src="" style="width: 150px;height: 200px;border:0px solid #e5e5e5;border-radius: 4px"/>
         	<p class="mt-3"><?php echo $book['subject'];?></p>
         	<div>
         		<h6 class="mb-2 text-muted">By: <span><?php echo $book['author']; ?></span></h6>

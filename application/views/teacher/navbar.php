@@ -12,7 +12,7 @@
 
 			
 			<li class="nav-item teacher-navbar-menu-item active">
-				<a class="nav-link" href="">Generate Report<span class="sr-only">(current)</span></a>
+				<a class="nav-link" href="/index.php/teacher/students">Students<span class="sr-only">(current)</span></a>
 			</li>
 		</ul>
 	</div>

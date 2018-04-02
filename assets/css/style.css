@@ -242,3 +242,15 @@ footer
 	background: white;
 	color:#868e96;
 }
+
+.bottom-align
+{
+	position: absolute;
+	bottom: 25px;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #000;
+    background: none;
+    border-bottom: 1px solid #db4f44;
+}
