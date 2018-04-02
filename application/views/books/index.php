@@ -1,7 +1,6 @@
 <div class="container-fluid">
 	<div class="row align-items mt-5 mb-5 ml-5">
 		<span class="mt-2"><strong>Filter By:&nbsp;</strong></span>
-		
 		<?php
 			$distinctTags = array();
 			foreach ($tags as $tag)
@@ -30,7 +29,6 @@
 			<?php endfor; ?>
 			</ul>
 		</div>
-		
 	</div>
 </div>
 
@@ -42,24 +40,16 @@
 				<div class="card white-container mb-3 p-3 card-border">
 			        <div class="card-block">
 		        		<a href="<?php echo $book['url']; ?>" target="_blank"><h5 class="card-title"><?php echo substr($book['name'],0,26); ?></h5></a>
-				        	<p class="card-text"><?php echo $book['subject'];?></p>
-				        	<div>
-				        		<h6 class="card-subtitle mb-2 text-muted">By: <span><?php echo $book['author']; ?></span></h6>
-				        	</div>
-				        	<div>
-					        	<a href="/index.php/book/<?php echo $book['id']; ?>" class="btn btn-link card-link mt-3">More</a>
-					        	<?php if($this->session->userdata('role') == 'teacher'): ?>
-					        		<a href="/index.php/teacher/books/edit/<?php echo $book['id']; ?>" class="pull-right btn card-link mt-3">Edit</a>
-					        	<?php endif; ?>
-				        	</div>
-				        	<!-- <div class="bottom-align">
-				        		<?php $tags = explode('#',$book['tag']); ?>
-
-				        		<?php for($i=0;$i<sizeof($tags);$i++): ?>
-				        			<a href="/index.php/books/<?php echo $tags[$i]; ?>"><span class="badge pl-2 pr-2 pb-1 badge-secondary"><?php echo ucwords($tags[$i]); ?></span></a>
-				        		<?php endfor; ?>
-
-				        	</div> -->
+			        	<p class="card-text"><?php echo $book['subject'];?></p>
+			        	<div>
+			        		<h6 class="card-subtitle mb-2 text-muted">By: <span><?php echo $book['author']; ?></span></h6>
+			        	</div>
+			        	<div>
+				        	<a href="/index.php/books/book/<?php echo $book['id']; ?>" class="btn btn-link card-link mt-3">More</a>
+				        	<?php if($this->session->userdata('role') == 'teacher'): ?>
+				        		<a href="/index.php/teacher/books/edit/<?php echo $book['id']; ?>" class="pull-right btn card-link mt-3">Edit</a>
+				        	<?php endif; ?>
+			        	</div>
 			        </div>
 				</div>				
 			</div>

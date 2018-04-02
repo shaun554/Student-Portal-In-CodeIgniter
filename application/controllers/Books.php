@@ -15,7 +15,7 @@ class Books extends CI_Controller
         $data['books'] = $this->books_model->get();
 
         $data['tags'] = $this->books_model->get();
-        
+
         $data['title'] = 'Books';
         $this->load->view('includes/header', $data);
         if($this->session->userdata('role') == 'teacher')

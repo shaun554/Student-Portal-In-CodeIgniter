@@ -39,7 +39,8 @@ class Books_Model extends CI_Model
 
     public function getWhere($key,$value)
     {
-        $query = $this->db->get('users', array($key => $value));
+        $this->db->where($key, $value, FALSE);
+        $query = $this->db->get('books');
         return $query->row_array();
     }
 
