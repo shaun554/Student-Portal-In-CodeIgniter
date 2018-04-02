@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<?php
+	<?php	
 		if(empty($title))
 		{
 			$title = 'Site Name';
@@ -19,7 +19,7 @@
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="/assets/datatables/datatables.min.css"/>
 
-	<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="/assets/css/main-style.css">
 
 	<script type="text/javascript" src="/assets/js/jquery.js"></script>
 	

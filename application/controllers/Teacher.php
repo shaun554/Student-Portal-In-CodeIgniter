@@ -108,6 +108,10 @@ class Teacher extends CI_Controller
             $data['information'] = $this->books_model->getWhere('id',$id);
 
             $this->load->view('includes/header');
+            if($this->session->userdata('role') == 'teacher')
+            {
+                $this->load->view('teacher/navbar', $data);        
+            }
             $this->load->view('/teacher/books/edit', $data);
             $this->load->view('includes/footer');
         }
@@ -124,14 +128,14 @@ class Teacher extends CI_Controller
     {
         $this->load->model('students/students_model');
         
-        $data['students'] = $this->students_model->getWhere('role','teacher');
+        $data['students'] = $this->students_model->getWhere('role','student');
 
         $this->load->view('includes/header');
         if($this->session->userdata('role') == 'teacher')
         {
             $this->load->view('teacher/navbar', $data);        
         }
-        $this->load->view('/students/index', $data);
+        $this->load->view('teacher/students/all_students', $data);
         $this->load->view('includes/footer');
     }
 }

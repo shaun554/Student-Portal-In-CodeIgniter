@@ -1,21 +1,235 @@
-$font-stack:    Helvetica, sans-serif;
-$primary-color: #333;
+$color_1: #505050;
+$color_2: white;
+$color_3: #EEEEEE;
+$color_4: #FFFFFF;
+$color_5: #555;
+$color_6: #71787d;
+$color_7: #222222;
+$color_8: #9e9e9e;
+$color_9: #999;
+$color_10: #000000;
+$color_11: #868e96;
+$color_12: #000;
+$font_family_1: 'Lato', sans-serif;
+$font_family_2: 'Slabo 27px', serif;
+$border_color_1: #db4f44;
 
-body {
-  font: 100% $font-stack;
-  color: $primary-color;
-}
-
-
-nav
+@import "https://fonts.googleapis.com/css?family=Slabo+27px";
+@import "https://fonts.googleapis.com/css?family=Lato";
+/*.card-border
 {
-	li
-	{
-		color:blue;
+	border-color: #db4f44;
+}*/
+body {
+	font-family: $font_family_1;
+	background: #f3f3f3;
+}
+h4 {
+	font-family: $font_family_2;
+	color: $color_1;
+	font-size: 40px;
+}
+.bg-light {
+	background: #db4f44 !important;
+}
+.navbar-light {
+	.navbar-nav {
+		.active {
+			>.nav-link {
+				color: $color_2;
+				border-bottom: 2px solid #FFFFFF;
+			}
+		}
+		.nav-link.active {
+			color: $color_2;
+			border-bottom: 2px solid #FFFFFF;
+		}
+		.nav-link.show {
+			color: $color_2;
+			border-bottom: 2px solid #FFFFFF;
+		}
+		.show {
+			>.nav-link {
+				color: $color_2;
+				border-bottom: 2px solid #FFFFFF;
+			}
+		}
+		.nav-link {
+			&:focus {
+				color: $color_2;
+			}
+			&:hover {
+				color: $color_2;
+				color: $color_4;
+			}
+			color: $color_3;
+		}
 	}
-
-	a:hover
-	{
-		border:1px;
+}
+.a.nav-link {
+	&:active {
+		border-bottom: 1px solid white;
+	}
+}
+.teacher-body {
+	background: white;
+}
+.card {
+	color: $color_1;
+}
+.card-title {
+	font-size: 25px;
+	font-family: $font_family_1;
+}
+.text-muted {
+	color: $color_5 !important;
+}
+.btn-link {
+	background: #FFFFFF;
+	border: 1px solid #505050;
+	border-radius: 4px;
+	text-transform: uppercase;
+	text-decoration: underline;
+	color: $color_6;
+	&:hover {
+		background: #FFFFFF;
+		border: 1px solid #505050;
+		border-radius: 4px;
+		text-transform: uppercase;
+		color: $color_6;
+	}
+}
+.teacher-navbar {
+	background: #505050 !important;
+}
+.teacher-navbar-menu-item {
+	>a {
+		color: $color_2;
+		color: $color_3;
+	}
+	&:hover {
+		>a {
+			&:hover {
+				color: $color_2;
+			}
+		}
+	}
+}
+.white-container {
+	box-shadow: 0 15px 35px rgba(50,50,93,.01),0 5px 15px rgba(0,0,0,.07);
+	background: #FFFFFF;
+	padding: 70px 40px;
+}
+.fa {
+	color: $color_7;
+}
+input {
+	border-radius: 0px !important;
+}
+.fa-copyright {
+	color: $color_8;
+}
+a {
+	color: $color_1;
+	&:hover {
+		color: $color_1;
+	}
+}
+footer {
+	padding: 20px 10px;
+	background: #505050;
+	color: $color_8;
+}
+.form-control {
+	border: none;
+	background: transparent;
+	&:focus {
+		border-color: $border_color_1;
+		box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0), 0 0 0.5px rgba(219, 79, 68, 0.8);
+		background: transparent;
+	}
+}
+.form-label {
+	position: absolute;
+	left: 0;
+	top: 10px;
+	color: $color_9;
+	z-index: 10;
+	transition: transform 150ms ease-out, font-size 150ms ease-out;
+	text-transform: uppercase;
+}
+.form-group {
+	position: relative;
+}
+.form-input {
+	position: relative;
+	padding: 12px 0px 5px 0;
+	width: 100%;
+	outline: 0;
+	border: 0;
+	box-shadow: 0 1px 0 0 #e5e5e5;
+	transition: box-shadow 150ms ease-out;
+	&:focus {
+		box-shadow: 0 2px 0 0 #cecece;
+	}
+}
+.focused {
+	.form-label {
+		transform: translateY(-125%);
+		font-size: .75em;
+	}
+}
+.form-input.filled {
+	box-shadow: 0 2px 0 0 lightgreen;
+}
+.btn {
+	text-transform: uppercase;
+}
+th {
+	text-transform: uppercase;
+}
+.user-logged-in-text {
+	color: $color_4 !important;
+}
+.page-item {
+	.page-link {
+		border: none;
+		color: $color_10;
+	}
+}
+.page-item.active {
+	.page-link {
+		border: 1px solid #db4f44;
+		color: $color_4;
+		background: #db4f44;
+	}
+}
+.navbar-toggler {
+	background: #f3f3f3;
+}
+.badge {
+	font-size: 13.75px;
+	&:hover {
+		border: 1px solid #868e96;
+		background: white;
+		color: $color_11;
+	}
+}
+.bottom-align {
+	position: absolute;
+	bottom: 25px;
+}
+.nav-pills {
+	.nav-link.active {
+		color: $color_12;
+		background: none;
+		border-bottom: 1px solid #db4f44;
+	}
+	.show {
+		>.nav-link {
+			color: $color_12;
+			background: none;
+			border-bottom: 1px solid #db4f44;
+		}
 	}
 }
