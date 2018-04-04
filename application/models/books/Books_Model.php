@@ -39,29 +39,28 @@ class Books_Model extends CI_Model
 
     public function getWhere($key,$value)
     {
-        $this->db->where($key, $value, FALSE);
+        $this->db->where($key, $value, TRUE);
         $query = $this->db->get('books');
         return $query->row_array();
     }
 
     public function updateBooks()
     {
-
         $username = $this->session->userdata('username');
         
         $getId = $this->get_user_data_model->getWhere('email', $username);
 
         $getBookId = $this->books_model->getWhere('name', $this->input->post('name'));
 
-        $this->db->set('name', $this->input->post('name'));
-        $this->db->set('url', $this->input->post('url'));
-        $this->db->set('subject', $this->input->post('subject'));
-        $this->db->set('author', $this->input->post('author'));
-        $this->db->set('added_by', $getId['id']);
-        $this->db->set('tag', $this->input->post('tag'));
+        $this->db->set('name', $this->input->post('name'), TRUE);
+        $this->db->set('url', $this->input->post('url'), TRUE);
+        $this->db->set('subject', $this->input->post('subject'), TRUE);
+        $this->db->set('author', $this->input->post('author'), TRUE);
+        $this->db->set('added_by', $getId['id'], TRUE);
+        $this->db->set('tag', $this->input->post('tag'), TRUE);
         $this->db->where('id', $getBookId['id'], FALSE);
         
-        return $this->db->update('books');
+        return$this->db->update('books');
     }
 
     public function getSimiliarBooks($key,$value)
@@ -69,6 +68,12 @@ class Books_Model extends CI_Model
         $this->db->like($key, $value);
         $query = $this->db->get('books');
         return $query->result_array();
+    }
+
+    public function deleteBook($id)
+    {
+        $this->db->where('id', $id);
+        return $this->db->delete('books');
     }
 }
 ?>

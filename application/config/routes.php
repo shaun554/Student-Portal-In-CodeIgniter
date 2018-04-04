@@ -52,11 +52,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
-/*$route['default_controller'] = 'page';
-$route['(:any)'] = 'pages/page/$1';*/
 
 $route['books'] = 'books/index';
-// $route['books/(:any)'] = 'books/index/$1';
 $route['book/(:any)'] = 'books/book/$1';
 $route['book/(:any)'] = 'books/filter/$1';
 
@@ -69,16 +66,17 @@ $route['register'] = 'register/index';
 
 $route['logout/logout'] = 'login/logout';
 
-$route['teacher/index'] = 'teacher/index';
-// $route['teacher/(:any)'] = 'teacher/index/';
-$route['teacher'] = 'teacher/index';
+$route['teacher/index'] = '/teacher/index';
+$route['teacher'] = '/teacher/index';
 $route['teacher/books/add'] = '/teacher/add/';
 $route['teacher/books/add/(:any)'] = '/teacher/add/$1';
 $route['teacher/books/edit'] = '/teacher/editBook/';
-$route['teacher/books/edit/(:any)'] = '/teacher/editBook/$1';
+$route['teacher/books/edit/(:num)'] = '/teacher/editBook/$1';
+$route['teacher/books/delete'] = '/teacher/deleteBook/';
+$route['teacher/books/delete/(:num)'] = '/teacher/deleteBook/$1';
 
-$route['admin'] = 'admin/index';
-$route['admin/index'] = 'admin/index';
-$route['admin/(:any)'] = 'admin/index/';
+$route['admin'] = '/admin/index';
+$route['admin/index'] = '/admin/';
+$route['admin/(:any)'] = '/admin/';
 
-$route['students'] = 'student/index';
+$route['students'] = 'student/';

@@ -81,45 +81,92 @@ class Teacher extends CI_Controller
 
     function editBook($id)
     {
-        if(!empty($id))
+        if($this->session->userdata('role') == 'teacher')
         {
-            $this->load->model('books/books_model');
-            $this->load->library('form_validation');
-
-            $this->form_validation->set_rules('name', 'Name', 'required');
-            $this->form_validation->set_rules('subject', 'Subject', 'required');
-            $this->form_validation->set_rules('author', 'Author', 'required');
-            $this->form_validation->set_rules('url', 'URL', 'required');
-            
-            if($this->input->post('submit') != null)
+            if(!empty($id))
             {
-                if ($this->form_validation->run() == FALSE)
+                $this->load->model('books/books_model');
+                $this->load->library('form_validation');
+
+                $this->form_validation->set_rules('name', 'Name', 'required');
+                $this->form_validation->set_rules('subject', 'Subject', 'required');
+                $this->form_validation->set_rules('author', 'Author', 'required');
+                $this->form_validation->set_rules('url', 'URL', 'required');
+                
+                if($this->input->post('submit') != null)
                 {
-                    $data['verified'] = FALSE;
-                }   
-                else
-                {
-                    $data['verified'] = TRUE;
-                    $this->books_model->updateBooks();
+                    if ($this->form_validation->run() == FALSE)
+                    {
+                        $data['verified'] = FALSE;
+                    }   
+                    else
+                    {
+                        $data['verified'] = TRUE;
+                        $this->books_model->updateBooks();
+                    }
                 }
+
+                $data['title'] = 'Edit book';
+                $data['information'] = $this->books_model->getWhere('id',$id);
+
+                $this->load->view('includes/header');
+                if($this->session->userdata('role') == 'teacher')
+                {
+                    $this->load->view('teacher/navbar', $data);        
+                }
+                $this->load->view('/teacher/books/edit', $data);
+                $this->load->view('includes/footer');
             }
-
-            $data['title'] = 'Edit book';
-            $data['information'] = $this->books_model->getWhere('id',$id);
-
-            $this->load->view('includes/header');
-            if($this->session->userdata('role') == 'teacher')
+            else
             {
-                $this->load->view('teacher/navbar', $data);        
+                $this->load->view('includes/header');
+                $this->load->view('messages/warning',null);   
+                $this->load->view('includes/footer');
             }
-            $this->load->view('/teacher/books/edit', $data);
-            $this->load->view('includes/footer');
         }
         else
         {
             $this->load->view('includes/header');
-            $data['message'] = "<div class='text-center'>Looks like you landed here by mistake.<br/>Lets go <a href='/'>home&nbsp;<i class='fa fa-home'></i></a></div>";
-            $this->load->view('messages/warning',$data);   
+            $this->load->view('messages/warning',null);   
+            $this->load->view('includes/footer');
+        }
+    }
+
+    public function deleteBook($id)
+    {
+        if($this->session->userdata('role') == 'teacher')
+        {
+            if(!empty($id))
+            {
+                $this->load->model('books/books_model');
+                $this->load->helper('url');
+
+                $data['information'] = $this->books_model->getWhere('id',$id);
+                
+                if($this->books_model->deleteBook($id))
+                {
+                    $data['verified'] = TRUE;
+                    $data['message'] = $this->input->post('name').' deleted';
+                    redirect('/teacher/books/add', $data);
+                }
+                else
+                {
+                    $data['verified'] = FALSE;
+                    $data['message'] = $this->input->post('name').' not deleted';
+                    redirect('/teacher/books/add', $data);
+                }
+            }
+            else
+            {
+                $this->load->view('includes/header');
+                $this->load->view('messages/warning',null);   
+                $this->load->view('includes/footer');
+            }
+        }
+        else
+        {
+            $this->load->view('includes/header');
+            $this->load->view('messages/warning',null);   
             $this->load->view('includes/footer');
         }
     }
@@ -138,5 +185,6 @@ class Teacher extends CI_Controller
         $this->load->view('teacher/students/all_students', $data);
         $this->load->view('includes/footer');
     }
+
 }
 ?>

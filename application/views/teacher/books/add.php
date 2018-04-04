@@ -6,12 +6,18 @@
         {
 			if($verified == FALSE)
 			{
-				$data['message'] = 'Book not added. Please try again later.';
+				if((!isset($data['message']) || ($data['message'] == null)))
+				{
+					$data['message'] = 'Book not added. Please try again later.';
+				}
 	    		$this->load->view('messages/failed',$data);
 			}
 			else
 			{
-				$data['message'] = $this->input->post('name').' added';
+				if((!isset($data['message']) || ($data['message'] == null)))
+				{
+					$data['message'] = $this->input->post('name').' added';
+				}
 				$this->load->view('messages/success',$data);
 			}
 		}
@@ -69,6 +75,8 @@
 				<th>Subject</th>
 				<th>Author</th>
 				<th>URL</th>
+				<th hidden="true">Tag</th>
+				<th hidden="true">URL</th>
 				<th>Edit</th>
 				<th>Delete</th>
 			</tr>			
@@ -81,9 +89,11 @@
 				<td><?php echo $book['name']; ?></td>
 				<td><?php echo $book['subject']; ?></td>
 				<td><?php echo $book['author']; ?></td>
-				<td class="text-center"><a href="<?php echo $book['url']; ?>" class="btn" target="_blank"><i class="fa fa-external-link"></i></a></td>
-				<td class="text-center"><a href="/index.php/teacher/books/edit/<?php echo $book['id']; ?>" class="btn"><i class="fa fa-pencil"></i></a></td>
-				<td class="text-center"><a href="" class="btn"><i class="fa fa-remove"></i></a></td>
+				<td hidden="true"><?php echo trim($book['tag']); ?></td>
+				<td class="text-center" hidden="true"><?php echo $book['url']; ?></td>
+				<td class="text-center"><a href="<?php echo $book['url']; ?>" class="btn btn-success btn-lg" target="_blank"><i class="fa fa-external-link text-white"></i></a></td>
+				<td class="text-center"><a href="/index.php/teacher/books/edit/<?php echo $book['id']; ?>" class="btn btn-primary btn-lg"><i class="fa fa-pencil text-white"></i></a></td>
+				<td class="text-center"><a href="/index.php/teacher/books/delete/<?php echo $book['id']; ?>" class="btn btn-danger btn-lg"><i class="fa fa-remove text-white"></i></a></td>
 			</tr>
 		<?php endforeach; ?>			
 		</tbody>

@@ -62,8 +62,7 @@
 </div>
 <?php
 	else:
-        $data['message'] = "<div class='text-center'>Looks like you landed here by mistake.<br/>Lets go <a href='/'>home&nbsp;<i class='fa fa-home'></i></a></div>";
-        $this->load->view('messages/warning',$data);   
+        $this->load->view('messages/warning',null);   
         $this->load->view('includes/footer');		
 	endif;
 ?>

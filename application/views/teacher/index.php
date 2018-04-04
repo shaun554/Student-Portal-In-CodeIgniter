@@ -11,6 +11,5 @@ if(isset($teacher))
 }
 ?>
 <?php $this->load->view('teacher/navbar'); ?>
-<div class="teacher-body mt-5">
-		
+<div class="teacher-body m-5 white-container">
 </div>

@@ -52,6 +52,9 @@ h4 {
 .text-muted {
   color: #555 !important; }
 
+.text-big {
+  font-size: 40px; }
+
 .btn-link {
   background: #FFFFFF;
   border: 1px solid #505050;
@@ -139,6 +142,18 @@ footer {
 
 .btn {
   text-transform: uppercase; }
+
+.btn-danger {
+  background: #c82131;
+  border-color: #c82131; }
+
+.btn-success {
+  background: #017715;
+  border-color: #017715; }
+
+.btn-primary {
+  background: #2d62e6;
+  border-color: #2d62e6; }
 
 th {
   text-transform: uppercase; }
